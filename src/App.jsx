@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import Transactions from "./Transactions";
 import TransactionDetails from "./TransactionDetails";
 import NavBar from "./NavBar";
+import CreateForm from "./CreateForm";
 
 const App = () => {
   const [transactions, setTransactions] = useState([])
@@ -25,7 +26,10 @@ const App = () => {
         <Route path="/:id" element={
           <TransactionDetails />
         }/>
-        {/* <Route /> */}
+        <Route path="/new" element={
+          <CreateForm 
+          setTransactions={setTransactions}/>
+        }/>
         {/* <Route /> */}
       </Routes>
     </div>
