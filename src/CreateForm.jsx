@@ -8,7 +8,8 @@ const CreateForm = ({ setTransactions }) => {
         "amount": 0,
         "date": "",
         "from": "",
-        "category": ""
+        "category": "",
+        "transactionType": "",
     })
 
     function handleChange(event){
@@ -59,11 +60,81 @@ const CreateForm = ({ setTransactions }) => {
                 </label>
             </div>
 
+            <div>
+                <label htmlFor="amount">
+                    Amount:
+                    <input 
+                    onChange={handleChange}
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    value={transaction.amount} />
+                </label>
+            </div>
 
+            <div>
+            <label htmlFor="transactionType">
+                    Transaction type:
+                    <select
+                    onChange={handleChange}
+                    id="transactionType" 
+                    name="transactionType"
+                    value={transaction.transactionType}
+                    >
+                    <option value="withdrawal">Withdrawal</option>
+                    <option value="deposit">Deposit</option>
+                    </select>
+                </label>
+            </div>
 
-            <button>Submit</button>
+            <div>
+                <label htmlFor="date">
+                    Date:
+                    <input 
+                    onChange={handleChange}
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={transaction.date} />
+                </label>
+            </div>
+
+            <div>
+                <label htmlFor="from">
+                    From:
+                    <input 
+                    onChange={handleChange}
+                    type="text"
+                    id="from"
+                    name="from"
+                    value={transaction.from} />
+                </label>
+            </div>
+
+            <label htmlFor="category">
+                Category:
+                <select
+                onChange={handleChange}
+                id="category" 
+                name="category"
+                value={transaction.category}
+                >
+                <option value="income">Income</option>
+                <option value="housing">Housing</option>
+                <option value="food">Food</option>
+                <option value="savings">Savings</option>
+                <option value="utilities">Utilities</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="personal">Personal</option>
+                <option value="gifts">Gifts</option>
+                </select>
+            </label>
+
+            <div>
+                <button>Submit</button>
+                <button onClick={handleCancel} >Cancel</button>
+            </div>
         </form>
-        <button onClick={handleCancel} >Cancel</button>
     </div>
   )
 }

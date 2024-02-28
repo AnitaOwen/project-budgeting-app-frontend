@@ -6,10 +6,10 @@ const Transactions = ({ transactions }) => {
   return (
     <div>
         <h2>Transactions</h2>
-        {transactions.map(({ id, date, item_name, amount }) => (
+        {transactions.map(({ id, date, itemName, amount }) => (
             <div key={id}>
                 <div>{date}</div>
-                <div>{item_name}</div>
+                <div>{itemName}</div>
                 <div>${amount}</div>
                 <hr />
             </div>
