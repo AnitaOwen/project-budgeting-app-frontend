@@ -51,31 +51,32 @@ const CreateForm = ({ setTransactions }) => {
             <div>
                 <label htmlFor="itemName">
                     Name:
-                    <input 
+                </label>
+                <input 
                     onChange={handleChange}
                     type="text"
                     id="itemName"
                     name="itemName"
                     value={transaction.itemName} />
-                </label>
             </div>
 
             <div>
                 <label htmlFor="amount">
                     Amount:
-                    <input 
+                </label>
+                <input 
                     onChange={handleChange}
                     type="number"
                     id="amount"
                     name="amount"
                     value={transaction.amount} />
-                </label>
             </div>
 
             <div>
-            <label htmlFor="transactionType">
+                <label htmlFor="transactionType">
                     Transaction type:
-                    <select
+                </label>
+                <select
                     onChange={handleChange}
                     id="transactionType" 
                     name="transactionType"
@@ -84,54 +85,53 @@ const CreateForm = ({ setTransactions }) => {
                     <option value="">Select One</option>
                     <option value="withdrawal">Withdrawal</option>
                     <option value="deposit">Deposit</option>
-                    </select>
-                </label>
+                </select>
             </div>
 
             <div>
                 <label htmlFor="date">
                     Date:
-                    <input 
+                </label>
+                <input 
                     onChange={handleChange}
                     type="date"
                     id="date"
                     name="date"
                     value={transaction.date} />
-                </label>
             </div>
 
             <div>
                 <label htmlFor="from">
                     From:
-                    <input 
+                </label>
+                <input 
                     onChange={handleChange}
                     type="text"
                     id="from"
                     name="from"
                     value={transaction.from} />
-                </label>
             </div>
-
-            <label htmlFor="category">
-                Category:
+            <div>
+                <label htmlFor="category">
+                    Category:
+                </label>
                 <select
-                onChange={handleChange}
-                id="category" 
-                name="category"
-                value={transaction.category}
-                >
-                <option value="">Select One</option>
-                <option value="income">Income</option>
-                <option value="housing">Housing</option>
-                <option value="food">Food</option>
-                <option value="savings">Savings</option>
-                <option value="utilities">Utilities</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="personal">Personal</option>
-                <option value="gifts">Gifts</option>
+                    onChange={handleChange}
+                    id="category" 
+                    name="category"
+                    value={transaction.category}
+                    >
+                    <option value="">Select One</option>
+                    <option value="Income">Income</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Food">Food</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Gifts">Gifts</option>
                 </select>
-            </label>
-
+            </div>
             <div>
                 <button>Submit</button>
                 <button onClick={handleCancel} >Cancel</button>

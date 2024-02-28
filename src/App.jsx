@@ -21,19 +21,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={
         <Transactions 
-        transactions={transactions}
-        setTransactions={setTransactions}/>
+        transactions={transactions} />
         } />
 
         <Route path="/:id" element={
-          <TransactionDetails />
+          <TransactionDetails setTransactions={setTransactions} />
         }/>
         <Route path="/new" element={
           <CreateForm 
           setTransactions={setTransactions}/>
         }/>
         <Route path="/edit/:id" element={
-          <EditForm />
+          <EditForm setTransactions={setTransactions}/>
         } />
       </Routes>
     </div>

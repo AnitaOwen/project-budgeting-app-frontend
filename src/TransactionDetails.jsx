@@ -1,9 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const TransactionDetails = () => {
+const TransactionDetails = ({ setTransactions }) => {
     const { id } = useParams()
     const [transactionDetail, setTransactionDetail] = useState([])
+
+    function handleDelete(id){
+        const options = {
+            method: "DELETE",
+        }
+        fetch(`http://localhost:3003/transactions/${id}`, options)
+        .then((res) => res.json())
+        .then((data) => (setTransactions(data.transactions)))
+    }
 
     useEffect(() => {
         fetch(`http://localhost:3003/transactions/${id}`)
@@ -16,12 +25,20 @@ const TransactionDetails = () => {
     const { itemName, amount, date, from, category } = transactionDetail
   return (
     <div>
-        <h2>Name: {itemName}</h2>
-        <p>Amount: {amount}</p>
+        <h3>Name: {itemName}</h3>
+        <p>Amount: ${amount}</p>
         <p>Date: {date}</p>
         <p>From: {from}</p>
         <p>Category: {category}</p>
-        <Link to={'/'}>Back</Link>
+        <Link to={`/edit/${id}`}>
+            <button>Edit Details</button>
+        </Link>
+        <button onClick={() => handleDelete(id)}>
+                    Delete
+                </button>
+        <div>
+            <Link to={'/'}>Back</Link>
+        </div>
     </div>
   )
 }
