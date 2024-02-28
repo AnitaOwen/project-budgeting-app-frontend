@@ -5,12 +5,18 @@ import Transactions from "./Transactions";
 const App = () => {
   const [transactions, setTransactions] = useState([])
 
+  useEffect(() => {
+    fetch("http://localhost:3003/transactions")
+    .then((res) => res.json())
+    .then((data) => setTransactions(data.transactions))
+  }, [])
   
   return (
     <div>
       <Routes>
         <Route path="/" element={
-        <Transactions />
+        <Transactions 
+        transactions={transactions}/>
         } />
 
         {/* <Route /> */}
