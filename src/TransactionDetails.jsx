@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 const TransactionDetails = ({ setTransactions }) => {
     const { id } = useParams()
+    const navigate = useNavigate()
     const [transactionDetail, setTransactionDetail] = useState([])
 
     function handleDelete(id){
@@ -12,6 +13,7 @@ const TransactionDetails = ({ setTransactions }) => {
         fetch(`http://localhost:3003/transactions/${id}`, options)
         .then((res) => res.json())
         .then((data) => (setTransactions(data.transactions)))
+        .then(navigate("/"))
     }
 
     useEffect(() => {
