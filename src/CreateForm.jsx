@@ -40,7 +40,8 @@ const CreateForm = ({ setTransactions }) => {
                     "from": "",
                     "category": ""
                 })
-        }
+                navigate("/")
+            }
         })
     }
 
