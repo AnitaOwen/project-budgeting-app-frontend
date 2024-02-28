@@ -33,16 +33,13 @@ const CreateForm = ({ setTransactions }) => {
                 alert("All inputs must be filled.")
             } else {
                 setTransactions(data.transactions)
-                setTransaction({
-                    "itemName": "",
-                    "amount": 0,
-                    "date": "",
-                    "from": "",
-                    "category": ""
-                })
                 navigate("/")
             }
         })
+    }
+
+    function handleCancel(){
+        navigate("/")
     }
 
 
@@ -61,7 +58,12 @@ const CreateForm = ({ setTransactions }) => {
                     value={transaction.itemName} />
                 </label>
             </div>
+
+
+
+            <button>Submit</button>
         </form>
+        <button onClick={handleCancel} >Cancel</button>
     </div>
   )
 }
