@@ -81,6 +81,7 @@ const CreateForm = ({ setTransactions }) => {
                     name="transactionType"
                     value={transaction.transactionType}
                     >
+                    <option value="">Select One</option>
                     <option value="withdrawal">Withdrawal</option>
                     <option value="deposit">Deposit</option>
                     </select>
@@ -119,6 +120,7 @@ const CreateForm = ({ setTransactions }) => {
                 name="category"
                 value={transaction.category}
                 >
+                <option value="">Select One</option>
                 <option value="income">Income</option>
                 <option value="housing">Housing</option>
                 <option value="food">Food</option>

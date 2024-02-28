@@ -4,6 +4,7 @@ import Transactions from "./Transactions";
 import TransactionDetails from "./TransactionDetails";
 import NavBar from "./NavBar";
 import CreateForm from "./CreateForm";
+import EditForm from "./EditForm";
 
 const App = () => {
   const [transactions, setTransactions] = useState([])
@@ -31,7 +32,9 @@ const App = () => {
           <CreateForm 
           setTransactions={setTransactions}/>
         }/>
-        {/* <Route /> */}
+        <Route path="/edit/:id" element={
+          <EditForm />
+        } />
       </Routes>
     </div>
   )
