@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Route, Routes, Link } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Transactions from "./Transactions";
 import TransactionDetails from "./TransactionDetails";
+import NavBar from "./NavBar";
 
 const App = () => {
   const [transactions, setTransactions] = useState([])
@@ -14,6 +15,7 @@ const App = () => {
   
   return (
     <div>
+      <NavBar />
       <Routes>
         <Route path="/" element={
         <Transactions 
