@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, Link } from "react-router-dom"
 import Transactions from "./Transactions";
+import TransactionDetails from "./TransactionDetails";
 
 const App = () => {
   const [transactions, setTransactions] = useState([])
@@ -19,7 +20,9 @@ const App = () => {
         transactions={transactions}/>
         } />
 
-        {/* <Route /> */}
+        <Route path="/:id" element={
+          <TransactionDetails />
+        }/>
         {/* <Route /> */}
         {/* <Route /> */}
       </Routes>
