@@ -46,7 +46,7 @@ const CreateForm = ({ setTransactions }) => {
 
   return (
     <div className="create-form-wrapper">
-        <h2>Add a new transaction</h2>
+        <h2>Add a Transaction</h2>
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="date">

@@ -22,9 +22,9 @@ const Transactions = ({ transactions }) => {
         <table>
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Name</th>
-                    <th>Amount</th>
+                    <th>DATE</th>
+                    <th>NAME</th>
+                    <th>AMOUNT</th>
                 </tr>
             </thead>
             <tbody>

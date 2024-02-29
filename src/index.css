@@ -1,10 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
+
 span{
   font-weight: 600;
+}
+h2{
+  color: rgb(93, 93, 93)
+}
+h2, th, tr{
+  font-weight: 500;
+}
+th{
+  font-family: "Nanum Gothic";
 }
 
 button{
@@ -12,7 +25,7 @@ button{
   border-radius: 4px;
   font-size: 10px;
   font-weight: 600;
-  background: gold;
+  background: rgb(250, 219, 41);
   margin: 10px;
 }
 
@@ -70,8 +83,6 @@ td{
   margin-bottom: 10px;
 }
 .create-form-wrapper label{
-  margin-right: 10px
+  margin-right: 10px;
+  font-weight: 500;
 }
-/* .create-form-wrapper label{
-  border: 2px solid red
-} */
