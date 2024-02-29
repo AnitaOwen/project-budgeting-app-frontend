@@ -4,11 +4,6 @@ const Transactions = ({ transactions }) => {
     if(transactions.length === 0){
         return null
     } 
-    // const total = transactions.reduce((acc, current) => {
-    //     acc += current.amount
-    //     // console.log(acc)
-    //     return acc
-    // }, 0)
 
     const options = { month: "short", day: "2-digit" }
 
