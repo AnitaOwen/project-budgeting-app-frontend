@@ -15,10 +15,10 @@ span{
 h2{
   color: rgb(93, 93, 93)
 }
-h2, th, tr{
+tr{
   font-weight: 500;
 }
-th{
+th, h2{
   font-family: "Nanum Gothic";
 }
 
@@ -38,7 +38,6 @@ td{
   text-align: center;
   padding: 8px;
 }
-
 .nav-wrapper{
   display: grid;
   grid-template-columns: 1fr 1fr;
