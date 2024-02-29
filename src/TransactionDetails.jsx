@@ -25,11 +25,13 @@ const TransactionDetails = ({ setTransactions }) => {
     if(transactionDetail.length === 0) return null
 
     const { itemName, amount, date, from, category } = transactionDetail
+
+    const options = { month: "short", day: "2-digit", year: "numeric" }
   return (
     <div>
         <h3>Name: {itemName}</h3>
         <p>Amount: ${amount}</p>
-        <p>Date: {date}</p>
+        <p>Date: {new Date(date).toLocaleDateString("en-US", options)}</p>
         <p>From: {from}</p>
         <p>Category: {category}</p>
         <Link to={`/edit/${id}`}>

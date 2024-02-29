@@ -46,7 +46,7 @@ const CreateForm = ({ setTransactions }) => {
 
   return (
     <div>
-        <h2>Create a transaction</h2>
+        <h2>Add a new transaction</h2>
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="itemName">
@@ -133,7 +133,7 @@ const CreateForm = ({ setTransactions }) => {
                 </select>
             </div>
             <div>
-                <button>Submit</button>
+                <button>Create New Transaction</button>
                 <button onClick={handleCancel} >Cancel</button>
             </div>
         </form>

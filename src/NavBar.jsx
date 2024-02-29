@@ -13,7 +13,7 @@ const NavBar = ({ transactions }) => {
         <h1>BUDGETR</h1>
         <h3>Account Total: ${total}</h3>
         <Link to="/new">
-            <button>Create Transaction</button>
+            <button>New Transaction</button>
         </Link>
 
     </div>

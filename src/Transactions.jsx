@@ -10,7 +10,8 @@ const Transactions = ({ transactions }) => {
     //     return acc
     // }, 0)
 
-    
+    const options = { month: "long", day: "2-digit" }
+
   return (
     <div>
         <div>
@@ -20,7 +21,7 @@ const Transactions = ({ transactions }) => {
 
         {transactions.map(({ id, date, itemName, amount }) => (
             <div key={id}>
-                <div>{date}</div>
+                <div>{new Date(date).toLocaleDateString("en-US", options)}</div>
                 <Link to={`/${id}`}>
                     <div>{itemName}</div>
                 </Link>
