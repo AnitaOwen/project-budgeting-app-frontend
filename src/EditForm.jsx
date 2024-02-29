@@ -137,8 +137,8 @@ const EditForm = ({ setTransactions }) => {
                 </select>
             </div>
             <div>
-                <button>Submit</button>
-                <button onClick={handleCancel} >Cancel</button>
+                <button>SUBMIT</button>
+                <button onClick={handleCancel} >CANCEL</button>
             </div>
         </form>
     </div>
