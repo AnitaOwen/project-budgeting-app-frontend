@@ -10,25 +10,40 @@ const Transactions = ({ transactions }) => {
     //     return acc
     // }, 0)
 
-    const options = { month: "long", day: "2-digit" }
+    const options = { month: "short", day: "2-digit" }
+
+    transactions.sort((a, b) => {
+        const dateA = new Date(a.date)
+        const dateB = new Date(b.date)
+        return dateB - dateA
+    })
 
   return (
-    <div>
-        <div>
+    <div className ="table-wrapper">
+        <div className="transactions-header">
             {/* <h3>Account Total: ${total}</h3> */}
             <h2>Transactions</h2>
         </div>
-
-        {transactions.map(({ id, date, itemName, amount }) => (
-            <div key={id}>
-                <div>{new Date(date).toLocaleDateString("en-US", options)}</div>
-                <Link to={`/${id}`}>
-                    <div>{itemName}</div>
-                </Link>
-                <div>${amount}</div>
-                <hr />
-            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+            {transactions.map(({ id, date, itemName, amount }) => (
+            <tr key={id} className={amount > 0 ? "positive" : "negative"}>
+                <td>{new Date(date).toLocaleDateString("en-US", options)}</td>
+                <td>
+                <Link to={`/${id}`}>{itemName}</Link>
+                </td>
+                <td>${amount}</td>
+            </tr>
         ))}
+            </tbody>
+        </table>
     </div>
   )
 }

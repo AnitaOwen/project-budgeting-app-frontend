@@ -9,13 +9,16 @@ const NavBar = ({ transactions }) => {
 }, 0)
 
   return (
-    <div>
+    <div className="nav-wrapper">
+      <div className="header-left">
         <h1>BUDGETR</h1>
-        <h3>Account Total: ${total}</h3>
+      </div>
+      <div className="header-right">
+        <h3>Account Total: <span className={total > 0 ? "positive-text" : "negative-text"}>${total}</span></h3>
         <Link to="/new">
-            <button>New Transaction</button>
+            <button>NEW TRANSACTION</button>
         </Link>
-
+      </div>
     </div>
   )
 }

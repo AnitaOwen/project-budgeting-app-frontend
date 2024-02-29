@@ -38,18 +38,33 @@ const EditForm = ({ setTransactions }) => {
         navigate("/")
     }
 
+
+
     useEffect(() => {
         if(id){
             fetch(`http://localhost:3003/transactions/${id}`)
             .then((res) => res.json())
             .then((data) => setTransaction(data.transaction))
+     
         }
     }, [id])
 
   return (
-    <div>
+    <div className="create-form-wrapper">
         <h2>Edit Transaction</h2>
         <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="date">
+                    Date:
+                </label>
+                <input 
+                    onChange={handleChange}
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={transaction.date} />
+            </div>
+            
             <div>
                 <label htmlFor="itemName">
                     Name:
@@ -61,17 +76,27 @@ const EditForm = ({ setTransactions }) => {
                     name="itemName"
                     value={transaction.itemName} />
             </div>
-
+            <div>
+                <label htmlFor="from">
+                    To/From: 
+                </label>
+                <input 
+                    onChange={handleChange}
+                    type="text"
+                    id="from"
+                    name="from"
+                    value={transaction.from} />
+            </div>
             <div>
                 <label htmlFor="amount">
-                    Amount:
+                    Amount $
                 </label>
                 <input 
                     onChange={handleChange}
                     type="number"
                     id="amount"
                     name="amount"
-                    value={transaction.amount} />
+                    value={transaction.amount < 0 ? transaction.amount.toString().slice(1) : transaction.amount} />
             </div>
 
             <div>
@@ -91,29 +116,6 @@ const EditForm = ({ setTransactions }) => {
             </div>
 
             <div>
-                <label htmlFor="date">
-                    Date:
-                </label>
-                <input 
-                    onChange={handleChange}
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={transaction.date} />
-            </div>
-
-            <div>
-                <label htmlFor="from">
-                    From:
-                </label>
-                <input 
-                    onChange={handleChange}
-                    type="text"
-                    id="from"
-                    name="from"
-                    value={transaction.from} />
-            </div>
-            <div>
                 <label htmlFor="category">
                     Category:
                 </label>
@@ -123,7 +125,7 @@ const EditForm = ({ setTransactions }) => {
                     name="category"
                     value={transaction.category}
                     >
-                    <option value="">Select One</option>
+                    <option value={transaction.category}>{transaction.category}</option>
                     <option value="Income">Income</option>
                     <option value="Housing">Housing</option>
                     <option value="Food">Food</option>

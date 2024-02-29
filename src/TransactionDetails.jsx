@@ -24,24 +24,24 @@ const TransactionDetails = ({ setTransactions }) => {
 
     if(transactionDetail.length === 0) return null
 
-    const { itemName, amount, date, from, category } = transactionDetail
+    const { itemName, amount, date, from, category, transactionType } = transactionDetail
 
     const options = { month: "short", day: "2-digit", year: "numeric" }
   return (
-    <div>
-        <h3>Name: {itemName}</h3>
-        <p>Amount: ${amount}</p>
+    <div className="details-wrapper">
+        <h3>{itemName} <span className={amount > 0 ? "positive-text" : "negative-text"}> ${amount}</span></h3>
         <p>Date: {new Date(date).toLocaleDateString("en-US", options)}</p>
         <p>From: {from}</p>
         <p>Category: {category}</p>
+        <p>Type: {transactionType}</p>
         <Link to={`/edit/${id}`}>
-            <button>Edit Details</button>
+            <button>EDIT DETAILS</button>
         </Link>
         <button onClick={() => handleDelete(id)}>
-                    Delete
+                    DELETE
                 </button>
         <div>
-            <Link to={'/'}>Back</Link>
+            <Link to={'/'}>GO BACK</Link>
         </div>
     </div>
   )

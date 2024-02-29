@@ -3,3 +3,75 @@
   padding: 0;
   box-sizing: border-box;
 }
+span{
+  font-weight: 600;
+}
+
+button{
+  padding: 4px 13px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  background: gold;
+  margin: 10px;
+}
+
+table{
+  width: 100%;
+}
+td{
+  text-align: center;
+  padding: 8px;
+}
+
+.nav-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 25px 0px;
+  background: rgb(83, 252, 213);
+}
+.header-right{
+  text-align: right;
+  padding-right: 50px;
+}
+.header-left{
+  padding-left: 50px;
+}
+
+.positive{
+  background: rgb(222, 250, 222)
+}
+.negative{
+  background: rgb(253, 220, 220)
+}
+.positive-text{
+  color:rgb(0, 106, 0)
+}
+.negative-text{
+  color: rgb(150, 0, 0);
+}
+.transactions-header{
+  text-align: center;
+  padding: 15px
+}
+.table-wrapper{
+  padding: 0px 80px;
+  padding-bottom: 15px;
+}
+.details-wrapper h3, p{
+  padding-bottom: 10px;
+}
+
+.details-wrapper, .create-form-wrapper{
+  text-align: center;
+  padding: 40px 0px;
+}
+.create-form-wrapper h2, input, select{
+  margin-bottom: 10px;
+}
+.create-form-wrapper label{
+  margin-right: 10px
+}
+/* .create-form-wrapper label{
+  border: 2px solid red
+} */

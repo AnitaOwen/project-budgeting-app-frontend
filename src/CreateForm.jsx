@@ -45,7 +45,7 @@ const CreateForm = ({ setTransactions }) => {
 
 
   return (
-    <div>
+    <div className="create-form-wrapper">
         <h2>Add a new transaction</h2>
         <form onSubmit={handleSubmit}>
             <div>
@@ -73,8 +73,20 @@ const CreateForm = ({ setTransactions }) => {
             </div>
 
             <div>
+                <label htmlFor="from">
+                    To/From:
+                </label>
+                <input 
+                    onChange={handleChange}
+                    type="text"
+                    id="from"
+                    name="from"
+                    value={transaction.from} />
+            </div>
+
+            <div>
                 <label htmlFor="amount">
-                    Amount:
+                    Amount: $
                 </label>
                 <input 
                     onChange={handleChange}
@@ -86,7 +98,7 @@ const CreateForm = ({ setTransactions }) => {
 
             <div>
                 <label htmlFor="transactionType">
-                    Transaction type:
+                    
                 </label>
                 <select
                     onChange={handleChange}
@@ -94,26 +106,15 @@ const CreateForm = ({ setTransactions }) => {
                     name="transactionType"
                     value={transaction.transactionType}
                     >
-                    <option value="">Select One</option>
+                    <option value="">Select a Transaction Type</option>
                     <option value="Withdrawal">Withdrawal</option>
                     <option value="Deposit">Deposit</option>
                 </select>
             </div>
 
             <div>
-                <label htmlFor="from">
-                    From:
-                </label>
-                <input 
-                    onChange={handleChange}
-                    type="text"
-                    id="from"
-                    name="from"
-                    value={transaction.from} />
-            </div>
-            <div>
                 <label htmlFor="category">
-                    Category:
+          
                 </label>
                 <select
                     onChange={handleChange}
@@ -121,7 +122,7 @@ const CreateForm = ({ setTransactions }) => {
                     name="category"
                     value={transaction.category}
                     >
-                    <option value="">Select One</option>
+                    <option value="">Select A Category</option>
                     <option value="Income">Income</option>
                     <option value="Housing">Housing</option>
                     <option value="Food">Food</option>
@@ -133,8 +134,8 @@ const CreateForm = ({ setTransactions }) => {
                 </select>
             </div>
             <div>
-                <button>Create New Transaction</button>
-                <button onClick={handleCancel} >Cancel</button>
+                <button>SUBMIT</button>
+                <button onClick={handleCancel} >CANCEL</button>
             </div>
         </form>
     </div>
