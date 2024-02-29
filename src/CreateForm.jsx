@@ -49,6 +49,18 @@ const CreateForm = ({ setTransactions }) => {
         <h2>Add a new transaction</h2>
         <form onSubmit={handleSubmit}>
             <div>
+                <label htmlFor="date">
+                    Date:
+                </label>
+                <input 
+                    onChange={handleChange}
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={transaction.date} />
+            </div>
+
+            <div>
                 <label htmlFor="itemName">
                     Name:
                 </label>
@@ -83,21 +95,9 @@ const CreateForm = ({ setTransactions }) => {
                     value={transaction.transactionType}
                     >
                     <option value="">Select One</option>
-                    <option value="withdrawal">Withdrawal</option>
-                    <option value="deposit">Deposit</option>
+                    <option value="Withdrawal">Withdrawal</option>
+                    <option value="Deposit">Deposit</option>
                 </select>
-            </div>
-
-            <div>
-                <label htmlFor="date">
-                    Date:
-                </label>
-                <input 
-                    onChange={handleChange}
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={transaction.date} />
             </div>
 
             <div>
