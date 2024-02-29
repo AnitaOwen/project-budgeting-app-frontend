@@ -124,14 +124,14 @@ const EditForm = ({ setTransactions }) => {
                     value={transaction.category}
                     >
                     <option value="">Select One</option>
-                    <option value="income">Income</option>
-                    <option value="housing">Housing</option>
-                    <option value="food">Food</option>
-                    <option value="savings">Savings</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="entertainment">Entertainment</option>
-                    <option value="personal">Personal</option>
-                    <option value="gifts">Gifts</option>
+                    <option value="Income">Income</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Food">Food</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Gifts">Gifts</option>
                 </select>
             </div>
             <div>

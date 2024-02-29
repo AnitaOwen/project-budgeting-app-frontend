@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/" element={
         <Transactions 
         transactions={transactions} />
-        } />
+        }/>
 
         <Route path="/:id" element={
           <TransactionDetails setTransactions={setTransactions} />
