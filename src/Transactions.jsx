@@ -27,7 +27,7 @@ const Transactions = ({ transactions }) => {
                     <th>AMOUNT</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="table-body">
             {transactions.map(({ id, date, itemName, amount }) => (
             <tr key={id} className={amount > 0 ? "positive" : "negative"}>
                 <td>{new Date(date).toLocaleDateString("en-US", options)}</td>

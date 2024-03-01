@@ -55,8 +55,14 @@ td{
 .positive{
   background: rgb(222, 250, 222)
 }
+.positive:hover{
+  background: rgb(134, 255, 134)
+}
 .negative{
   background: rgb(253, 220, 220)
+}
+.negative:hover{
+  background: rgb(251, 127, 127)
 }
 .positive-text{
   color:rgb(0, 106, 0)
