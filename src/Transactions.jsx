@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-// import DoughnutChart from "./DoughnutChart.jsx"
+import Chart from 'chart.js/auto'
+import DoughnutChart from "./DoughnutChart.jsx"
 
 const Transactions = ({ transactions }) => {
     if(transactions.length === 0){
@@ -26,17 +27,43 @@ const Transactions = ({ transactions }) => {
         return dateB - dateA
     })
 
-    // const chartData = {
-    //     labels: ['Food', 'Rent', 'Transportation', 'Entertainment'],
-    //     datasets: [
-    //       {
-    //         // label: 'Expenses',
-    //         backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8A2BE2'],
-    //         hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8A2BE2'],
-    //         data: [300, 500, 200, 100],
-    //       },
-    //     ],
-    //   }
+    const categories = transactions.reduce((acc, current) => {
+        if(!acc.includes(current.category) && current.transactionType === "Withdrawal"){
+        acc.push(current.category)
+        }
+        return acc 
+    }, [])
+
+    const matchingTransactions = categories.map((category) => 
+         transactions.filter((transaction) => transaction.category === category))
+    const totals = matchingTransactions.map((transactionsByCategory) => {
+        return transactionsByCategory.reduce((acc, current) => {
+            if(current.transactionType === "Withdrawal"){
+                acc += Math.abs(current.amount)
+            }
+            return acc
+        }, 0)
+    })
+    // console.log(matchingTransactions)
+    // console.log(totals)
+
+    const chartData = {
+        labels: categories,
+        datasets: [
+          {
+            backgroundColor: ['#e4d1d1', '#b9b0b0', '#d9ecd0', '#77a8a8', '#E1E8ED', '#d5f4e6'],
+            hoverBackgroundColor: ['#e4d1d1', '#b9b0b0', '#d9ecd0', '#77a8a8', '#E1E8ED', '#d5f4e6'],
+            data: totals,
+          },
+        ],
+      }
+
+      const expenseTotals = transactions.reduce((acc, current) => {
+        if(current.transactionType === "Withdrawal"){
+            acc += Math.abs(current.amount)
+        }
+        return acc
+      }, 0)
 
   return (
     <div className ="table-wrapper">
@@ -64,7 +91,12 @@ const Transactions = ({ transactions }) => {
         ))}
             </tbody>
         </table>
-        {/* <DoughnutChart data={chartData} /> */}
+        <div className="total-expenses">
+            <p>Total Expenses: ${expenseTotals}</p>
+        </div>
+        <div className="chart-wrapper">
+            <DoughnutChart data={chartData} />
+        </div>
     </div>
   )
 }
