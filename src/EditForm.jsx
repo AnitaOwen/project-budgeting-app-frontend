@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
+const URL = import.meta.env.VITE_BASE_API_URL;
 
 const EditForm = ({ setTransactions }) => {
     const { id } = useParams()
@@ -28,7 +29,7 @@ const EditForm = ({ setTransactions }) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(transaction),
         }
-        fetch(`http://localhost:3003/transactions/${id}`, options)
+        fetch(`${URL}/${id}`, options)
         .then((res) => res.json())
         .then((data) => setTransactions(data.transactions))
         .then(() => navigate('/'))
@@ -42,7 +43,7 @@ const EditForm = ({ setTransactions }) => {
 
     useEffect(() => {
         if(id){
-            fetch(`http://localhost:3003/transactions/${id}`)
+            fetch(`${URL}/${id}`)
             .then((res) => res.json())
             .then((data) => setTransaction(data.transaction))
      

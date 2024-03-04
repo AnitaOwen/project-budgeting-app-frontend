@@ -5,12 +5,13 @@ import TransactionDetails from "./TransactionDetails";
 import NavBar from "./NavBar";
 import CreateForm from "./CreateForm";
 import EditForm from "./EditForm";
+const URL = import.meta.env.VITE_BASE_API_URL;
 
 const App = () => {
   const [transactions, setTransactions] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3003/transactions")
+    fetch(`${URL}`)
     .then((res) => res.json())
     .then((data) => setTransactions(data.transactions))
   }, [])

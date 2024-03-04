@@ -1,5 +1,6 @@
 import { useState }from 'react'
 import { useNavigate } from "react-router-dom";
+const URL = import.meta.env.VITE_BASE_API_URL;
 
 const CreateForm = ({ setTransactions }) => {
     const navigate = useNavigate()
@@ -27,7 +28,7 @@ const CreateForm = ({ setTransactions }) => {
             body: JSON.stringify(transaction)
         }
 
-        fetch("http://localhost:3003/transactions", options)
+        fetch(`${URL}`, options)
         .then((res) => res.json())
         .then((data) => {
             if(data.message) {
